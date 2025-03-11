@@ -96,3 +96,10 @@ if vim.g.neovide then
   vim.g.transparency = 0.9
   vim.g.neovide_background_color = "#1e1e2e" .. alpha()
 end
+
+
+-- FOLDING
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true

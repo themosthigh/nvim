@@ -1,7 +1,12 @@
 local lspconfig = require("lspconfig")
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
--- capabilities = require("blink.cmp").default_capabilities(capabilities)
+-- -- capabilities = require("blink.cmp").default_capabilities(capabilities)
+-- capabilities.textDocument.foldingRange = {
+--   dynamicRegistration = false,
+--   lineFoldingOnly = true
+-- }
+-- require("ufo").setup {}
 
 local mason_registry = require("mason-registry")
 local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()

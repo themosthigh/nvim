@@ -100,14 +100,27 @@ wk.add({
   { "<leader>df", vim.diagnostic.open_float, desc = "Float Diagnostic" },
 })
 
-
-
 -- window managment
 wk.add({
   { "<leader>sh", "<cmd>split<cr>",  desc = "Horizontsl Split window" },
   { "<leader>sv", "<cmd>vsplit<cr>", desc = "Vertical Split window" },
 })
 
+
+-- folding
+wk.add({
+  {
+    "zK",
+    function()
+      local winid = require("ufo").peekFoldedLinesUnderCursor()
+      if not winid then
+        vim.lsp.buf.hover()
+      end
+    end,
+    mode = { "n", "v" },
+    desc = "Peek folds"
+  }
+})
 
 -------------------------------------------------
 ------------------ OVERRIDES --------------------

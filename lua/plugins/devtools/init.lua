@@ -27,6 +27,7 @@ return {
         widget_guides = {
           enabled = true,
         },
+        fvm = true,
       })
 
       require("which-key").add({
@@ -67,15 +68,15 @@ return {
   },
 
 
-  -- Rust tools
-  {
-    'mrcjkb/rustaceanvim',
-    dependencies = {
-      'mfussenegger/nvim-dap',
-    },
-    version = '^5', -- Recommended
-    lazy = false,   -- This plugin is already lazy
-  },
+  -- -- Rust tools
+  -- {
+  --   'mrcjkb/rustaceanvim',
+  --   dependencies = {
+  --     'mfussenegger/nvim-dap',
+  --   },
+  --   version = '^5', -- Recommended
+  --   lazy = false,   -- This plugin is already lazy
+  -- },
 
 
   -- REST

@@ -38,7 +38,8 @@ return {
         cpp = { "clang-format" },
         python = { "black" },
         kotlin = { "ktlint" },
-        proto = {}
+        proto = { "buf" },
+        dart = { lsp_format = "first" }
       },
     })
 

@@ -28,11 +28,11 @@ local markup_files = {
 
 local servers = {
   "gopls",
-  -- "rust_analyzer",
+  "rust_analyzer",
   "pyright",
-  "dartls",
+  -- "dartls",
   "svelte",
-  "clangd",
+  -- "clangd",
   "astro",
   "intelephense",
   "lua_ls",
@@ -91,7 +91,8 @@ lspconfig.tailwindcss.setup({
     "tailwind.config.cjs",
     "tailwind.config.mjs",
     "mix.exs",
-    "artisan" -- for osticket
+    "artisan", -- for osticket
+    "svelte*"  -- for all svelte projects where I always use tailwind
   ),
 })
 

@@ -1,49 +1,55 @@
 -- temporarily disabled
+local show_comletions = {
+  function(cmp)
+    cmp.show({})
+  end
+}
+
+
+
 
 return {
-  -- Completions
-  "hrsh7th/nvim-cmp",
-  dependencies = {
-    'neovim/nvim-lspconfig',
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/nvim-cmp',
-    -- luasnip dependencies
-    'L3MON4D3/LuaSnip',
-    'saadparwaiz1/cmp_luasnip',
-    "mlaursen/vim-react-snippets",
-  },
-  config = function()
-    local cmp = require("cmp")
-    require("vim-react-snippets").lazy_load()
+  {
+    'saghen/blink.cmp',
+    -- optional: provides snippets for the snippet source
+    dependencies = { 'rafamadriz/friendly-snippets' },
 
-    cmp.setup(
-      {
-        snippet = {
-          expand = function(args)
-            require("luasnip").lsp_expand(args.body)
-          end
+    -- use a release tag to download pre-built binaries
+    version = '1.*',
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      appearance = {
+        nerd_font_variant = 'mono'
+
+      },
+
+      -- (Default) Only show the documentation popup when manually triggered
+      completion = {
+        documentation = { auto_show = true },
+        list = {
+          max_items = 200,
+          selection = { preselect = false, auto_insert = false },
         },
-        window = {
-          -- completion = cmp.config.window.bordered(),
-          -- documentation = cmp.config.window.bordered(),
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<D-Space>'] = cmp.mapping.complete(),
-          ['<C-K>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = false }),
-        }),
-        sources = cmp.config.sources({
-          { name = "supermaven" },
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "path" },
-        })
-      }
-    )
-  end
+        menu = {
+          max_height = 30
+        }
+      },
+      sources = { default = { 'lsp', 'path', 'snippets', 'buffer' }, },
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+
+      keymap = {
+        preset = "default",
+        -- show with a list of providers
+        ['<C-space>'] = show_comletions,
+        ['<D-space>'] = show_comletions,
+        ["<CR>"] = { "accept", "fallback" }
+      },
+
+
+
+    },
+    opts_extend = { "sources.default" },
+  }
 }

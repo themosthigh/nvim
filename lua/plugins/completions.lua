@@ -9,21 +9,40 @@ local show_comletions = {
 
 
 return {
+  -- Snippet engine
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = true,
+    dependencies = {
+      {
+        "rafamadriz/friendly-snippets",
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+          require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
+        end,
+      },
+    },
+    opts = {
+      history = true,
+      delete_check_events = "TextChanged",
+    },
+  },
+
+  -- Completions provider
   {
     'saghen/blink.cmp',
-    -- optional: provides snippets for the snippet source
-    dependencies = { 'rafamadriz/friendly-snippets' },
-
-    -- use a release tag to download pre-built binaries
     version = '1.*',
-
-    ---@module 'blink.cmp'
-    ---@type blink.cmp.Config
     opts = {
+      -- appearance for some reason
       appearance = {
         nerd_font_variant = 'mono'
-
       },
+
+      -- snippet engine
+      snippets = { preset = 'luasnip' },
+
+      -- completion sources
+      sources = { default = { 'lsp', 'path', 'snippets', 'buffer' }, },
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
@@ -32,13 +51,13 @@ return {
           max_items = 200,
           selection = { preselect = false, auto_insert = false },
         },
-        menu = {
-          max_height = 30
-        }
+        menu = { max_height = 30 }
       },
-      sources = { default = { 'lsp', 'path', 'snippets', 'buffer' }, },
-      fuzzy = { implementation = "prefer_rust_with_warning" },
 
+      -- pattern matching
+      fuzzy = { implementation = 'lua' },
+
+      -- keymaps
       keymap = {
         preset = "default",
         -- show with a list of providers
@@ -46,10 +65,7 @@ return {
         ['<D-space>'] = show_comletions,
         ["<CR>"] = { "accept", "fallback" }
       },
-
-
-
     },
     opts_extend = { "sources.default" },
-  }
+  },
 }

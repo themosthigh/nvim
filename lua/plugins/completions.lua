@@ -46,7 +46,10 @@ return {
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
-        documentation = { auto_show = true },
+        documentation = {
+          auto_show = true,
+          auto_show_delay_ms = 0,
+        },
         list = {
           max_items = 200,
           selection = { preselect = false, auto_insert = false },

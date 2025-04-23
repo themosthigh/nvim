@@ -42,7 +42,7 @@ return {
       snippets = { preset = 'luasnip' },
 
       -- completion sources
-      sources = { default = { 'lsp', 'path', 'snippets', 'buffer' }, },
+      sources = { default = { 'lsp', 'path', 'buffer', 'snippets', }, },
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {

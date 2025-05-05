@@ -86,16 +86,17 @@ lspconfig.emmet_language_server.setup({
 
 lspconfig.tailwindcss.setup({
   filetypes = markup_files,
-  root_dir = lspconfig.util.root_pattern(
-    "tailwind.config.js",
-    "tailwind.config.ts",
-    "postcss.config.js",
-    "tailwind.config.cjs",
-    "tailwind.config.mjs",
-    "mix.exs",
-    "artisan", -- for osticket
-    "svelte*"  -- for all svelte projects where I always use tailwind
-  ),
+  -- root_dir = lspconfig.util.root_pattern(
+  --   "tailwind.config.js",
+  --   "tailwind.config.ts",
+  --   "postcss.config.js",
+  --   "tailwind.config.cjs",
+  --   "tailwind.config.mjs",
+  --   "mix.exs",
+  --   "artisan", -- for osticket
+  --   "svelte*", -- for all svelte projects where I always use tailwind
+  --   ".next*"   -- and on next
+  -- ),
 })
 
 lspconfig.unocss.setup({

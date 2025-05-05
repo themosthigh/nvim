@@ -11,23 +11,6 @@ return {
     event = "VeryLazy",
 
     config = function()
-      -- LSP clients attached to buffer
-      local clients_lsp = function()
-        local bufnr = vim.api.nvim_get_current_buf()
-
-        local clients = vim.lsp.get_clients(bufnr)
-
-        if next(clients) == nil then
-          return ""
-        end
-
-        local c = {}
-        for _, client in pairs(clients) do
-          table.insert(c, client.name)
-        end
-        return "\u{f085} " .. table.concat(c, " | ")
-      end
-
       local function macro_recording()
         local recording_register = vim.fn.reg_recording()
         if recording_register == "" then
@@ -62,7 +45,7 @@ return {
           lualine_b = { "branch", "diff" },
           lualine_c = { { "filename", file_status = true, path = 1 } },
           lualine_x = { macro_recording, "filetype" },
-          lualine_y = { "diagnostics", clients_lsp },
+          lualine_y = { "diagnostics", "lsp_status" },
           lualine_z = { "location", "progress" },
         },
         inactive_sections = {

@@ -8,7 +8,7 @@ end
 -- External mapppings
 require("config.mappings.telescope-mappings")
 require("config.mappings.bufferline-mappings")
-require("config.mappings.kulala")
+-- require("config.mappings.kulala")
 
 -- Explorer
 wk.add({

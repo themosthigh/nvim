@@ -1,3 +1,4 @@
+-- FIXME: uninstalled
 local rest = require("kulala")
 
 

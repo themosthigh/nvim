@@ -92,6 +92,8 @@ return {
   -- MDX
   {
     "davidmh/mdx.nvim",
+    lazy = true,
+    ft = { "md", "mdx", "mdoc" },
     config = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" }
   },

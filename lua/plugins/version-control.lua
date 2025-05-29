@@ -2,7 +2,10 @@ local icons = require("builtin.ui.icons")
 
 return {
   -- Git diffs
-  { "sindrets/diffview.nvim", event = "VeryLazy" },
+  { "sindrets/diffview.nvim",    event = "VeryLazy" },
+
+  -- Git conflict resolution
+  { "akinsho/git-conflict.nvim", config = "true" },
 
   -- Git signs
   {

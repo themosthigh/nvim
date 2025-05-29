@@ -39,7 +39,11 @@ return {
         python = { "black" },
         kotlin = { "ktlint" },
         proto = { "buf" },
-        dart = { lsp_format = "first" }
+        dart = { lsp_format = "first" },
+        toml = { lsp_format = "first" },
+        sql = { lsp_format = "first" },
+        nix = { lsp_format = "first" },
+
       },
     })
 

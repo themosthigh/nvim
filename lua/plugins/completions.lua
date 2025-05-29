@@ -6,8 +6,6 @@ local show_comletions = {
 }
 
 
-
-
 return {
   -- Snippet engine
   {
@@ -18,7 +16,6 @@ return {
         "rafamadriz/friendly-snippets",
         config = function()
           require("luasnip.loaders.from_vscode").lazy_load()
-          require("luasnip.loaders.from_vscode").lazy_load({ paths = { vim.fn.stdpath("config") .. "/snippets" } })
         end,
       },
     },
@@ -32,6 +29,7 @@ return {
   {
     'saghen/blink.cmp',
     version = '1.*',
+
     opts = {
       -- appearance for some reason
       appearance = {
@@ -42,7 +40,19 @@ return {
       snippets = { preset = 'luasnip' },
 
       -- completion sources
-      sources = { default = { 'lsp', 'path', 'buffer', 'snippets', }, },
+      sources = {
+        default = {
+          'lsp',
+          'path',
+          'buffer',
+          -- 'snippets',
+        },
+        providers = {
+          lsp = { score_offset = 10 },
+          snippets = { score_offset = -10 }
+        },
+      },
+
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
@@ -57,8 +67,9 @@ return {
         menu = { max_height = 30 }
       },
 
+
       -- pattern matching
-      fuzzy = { implementation = 'lua' },
+      fuzzy = { implementation = 'lua', sorts = { "score" } },
 
       -- keymaps
       keymap = {

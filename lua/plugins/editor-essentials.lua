@@ -17,6 +17,29 @@ return {
     end,
   },
 
+
+  -- Comment box
+  {
+    "LudoPinelli/comment-box.nvim",
+
+    config = function()
+      local wk = require("which-key")
+
+      wk.register({
+        ["<Leader>"] = {
+          B = {
+            name = " □  Boxes",
+            b = { "<Cmd>CBccbox<CR>", "Box Title" },
+            t = { "<Cmd>CBllline<CR>", "Titled Line" },
+            l = { "<Cmd>CBline<CR>", "Simple Line" },
+            m = { "<Cmd>CBllbox14<CR>", "Marked" },
+            -- d = { "<Cmd>CBd<CR>", "Remove a box" },
+          },
+        },
+      })
+    end
+  },
+
   -- Surround
   {
     "kylechui/nvim-surround",

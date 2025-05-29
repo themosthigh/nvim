@@ -10,7 +10,7 @@ capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 -- }
 -- require("ufo").setup {}
 
-local mason_registry = require("mason-registry")
+-- local mason_registry = require("mason-registry")
 -- local vue_language_server_path = mason_registry.get_package("vue-language-server"):get_install_path()
 --     .. "/node_modules/@vue/language-server"
 
@@ -29,27 +29,25 @@ local markup_files = {
 }
 
 local servers = {
-  "gopls",
-  "rust_analyzer",
-  "pyright",
-  -- "dartls",
-  "svelte",
-  -- "clangd",
-  "astro",
-  "intelephense",
-  "lua_ls",
-  "taplo", -- toml
-  "cssls",
-  "zls",
-  "prismals",
-  "gleam",
-  "kotlin_language_server",
-  "buf_ls",
-  "vala_ls",
-  "jsonls",
-  "java_language_server",
   "angularls",
-  "zls"
+  "astro",
+  "buf_ls",
+  "cssls",
+  "gleam",
+  "gopls",
+  "intelephense",
+  "java_language_server",
+  "jsonls",
+  "kotlin_language_server",
+  "lua_ls",
+  "prismals",
+  "pyright",
+  "rust_analyzer",
+  "svelte",
+  "sqlls",
+  "taplo", -- toml
+  "vala_ls",
+  "zls",
 }
 
 for _, lsp in ipairs(servers) do
@@ -104,17 +102,6 @@ lspconfig.unocss.setup({
   root_dir = lspconfig.util.root_pattern("uno.config.js", "uno.config.ts"),
 })
 
--- lspconfig.cssls.setup({
--- 	filetypes = markup_files,
--- })
---
-
-
-lspconfig.lua_ls.setup({
-  filetypes = { "lua" },
-  cmd = { "lua-language-server" },
-  hint = { enable = true },
-})
 
 lspconfig.eslint.setup({
   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "astro" },
@@ -123,33 +110,6 @@ lspconfig.eslint.setup({
 lspconfig.elixirls.setup({
   cmd = { "elixir-ls" },
 })
-
--- javascript
--- local ts_organize_imports_cmd = "_typescript.organizeImports"
---
--- lspconfig.ts_ls.setup({
---   filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "vue" },
---   commands = {
---     OrganizeImports = {
---       function()
---         organize_imports(ts_organize_imports_cmd)
---       end,
---       description = "Organize Imports",
---     },
---   },
---   init_options = {
---     plugins = {
---       {
---         name = "@vue/typescript-plugin",
---         location = vue_language_server_path,
---         languages = { "vue" },
---       },
---     },
---   },
--- })
-
-
-
 
 require("lspconfig.configs").vtsls = require("vtsls").lspconfig -- set default server config, optional but recommended
 lspconfig.vtsls.setup({

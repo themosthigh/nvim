@@ -48,6 +48,7 @@ local servers = {
   "taplo", -- toml
   "vala_ls",
   "zls",
+  "nil_ls"
 }
 
 for _, lsp in ipairs(servers) do

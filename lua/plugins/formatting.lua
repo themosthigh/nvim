@@ -42,7 +42,7 @@ return {
         dart = { lsp_format = "first" },
         toml = { lsp_format = "first" },
         sql = { lsp_format = "first" },
-        nix = { lsp_format = "first" },
+        nix = { lsp_format = "first", "nixfmt" },
 
       },
     })

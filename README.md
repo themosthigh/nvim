@@ -1,5 +1,4 @@
-![image](https://github.com/user-attachments/assets/498a3893-8f55-4668-b7c8-0747c60f73da)
-
+![image](https://github.com/user-attachments/assets/d0d06e57-4c6d-4048-80fa-bcd552a2db43)
 
 # My Neovim config
 

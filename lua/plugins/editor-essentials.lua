@@ -21,21 +21,17 @@ return {
   -- Comment box
   {
     "LudoPinelli/comment-box.nvim",
+    dependencies = {
+      "folke/which-key.nvim",
+    },
 
     config = function()
       local wk = require("which-key")
-
-      wk.register({
-        ["<Leader>"] = {
-          B = {
-            name = " □  Boxes",
-            b = { "<Cmd>CBccbox<CR>", "Box Title" },
-            t = { "<Cmd>CBllline<CR>", "Titled Line" },
-            l = { "<Cmd>CBline<CR>", "Simple Line" },
-            m = { "<Cmd>CBllbox14<CR>", "Marked" },
-            -- d = { "<Cmd>CBd<CR>", "Remove a box" },
-          },
-        },
+      wk.add({
+        { "<leader>cbc", ":CBcatalog<cr>", desc = "Catalog" },
+        { "<leader>cbb", ":CBccbox<cr>",   desc = "Center Box" },
+        { "<leader>cbl", ":CBllline<cr>",  desc = "Title Line" },
+        { "<leader>cbl", ":CBline<cr>",    desc = "Line" }
       })
     end
   },

@@ -1,4 +1,5 @@
-![image](https://github.com/tallestlegacy/nvim/assets/71118951/1109806a-6255-4763-81ee-f891390d7ce0)
+![image](https://github.com/user-attachments/assets/5c4ca591-25a1-49b5-bbfe-6744c26c2a86)
+
 
 # My Neovim config
 
@@ -16,53 +17,64 @@
 
 ### Editor features UI and functional features:
 
-- [x] [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) colorscheme
 - [x] [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) for statusline
 - [x] [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) for highlights
 - [x] [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) to display indentation guides
 - [x] File Tree [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
-- [x] [lualine-lsp-progress](https://github.com/arkav/lualine-lsp-progress) to display LSP server progress
-- [x] [alpha-nvim](https://github.com/goolord/alpha-nvim) for dashboard customisation
 
 ### Code completions,and LSP support:
 
-- [x] [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) to complete code
+- [x] [blink-cmp](https://github.com/Saghen/blink.cmp) code completions
 - [x] [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) to configure nvim-lspconfig
 - [x] [mason.nvim](https://github.com/williamboman/mason.nvim) to manage LSP servers
 - [x] [mason-lspconfig.nvim](https://github.com/williamboman/mason-lspconfig.nvim) to manage LSP server configs
 - [x] [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim) to install LSP servers
-- [x] [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) to search files
 - [x] [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) to launch terminal
 - [x] [Comment.nvim](https://github.com/numToStr/Comment.nvim) for commenting
-- [x] [bufferline.nvim](https://github.com/akinsho/bufferline.nvim) for tab management
-- [x] [illuminate.nvim](https://github.com/RRethy/vim-illuminate) to highlight word under cursor
+- [x] [Comment box](https://github.com/LudoPinelli/comment-box.nvim) for fancy comment styling 
+- [x] [barbar](https://github.com/LudoPinelli/comment-box.nvim) for buffer management
 
 ---
 
-![image](https://github.com/tallestlegacy/nvim/assets/71118951/ecbfe8cc-6216-4669-8128-74c9699f314f)
+![image](https://github.com/user-attachments/assets/5a3de81c-fbcb-4d09-a044-b5f5f452d391)
+
 
 Version Control:
 
 - [x] [gitsigns](https://github.com/lewis6991/gitsigns.nvim) for git signs on lines
 - [x] [diffview.nvim](https://github.com/sindrets/diffview.nvim) to view git diff
-- [x] [lazygit.nvim](https://github.com/kdheepak/lazygit.nvim) for more complete git features
 
 ---
 
-![image](https://github.com/tallestlegacy/nvim/assets/71118951/e14288d9-359b-45b2-899c-25ea93a33cae)
+![image](https://github.com/user-attachments/assets/64d3adca-1265-43f9-a917-002c2f896236)
+
+
 
 ### Personal plugins
 
 These are plugins I included in my seperated user config - a place where I can play around with new plugins and add plugins that aren't a part of the **core** features of my config
 
 - Colorschemes
-  - [x] [darcula.nvim](https://github.com/tallestlegacy/darcula.nvim) colorscheme
+  - [x] [darcula.nvim](https://github.com/themosthigh/darcula.nvim) colorscheme
+  - [x] [kanagawa.nvim](https://github.com/rebelot/kanagawa.nvim)
 - Linting & formatting & AI completions
   - [x] [conform.nvim](https://github.com/stevearc/conform.nvim) for formatting
   - [x] [nvim-lint](https://github.com/mfussenegger/nvim-lint) for linting
-  - [x] AI completions : [codeium.vim](https://github.com/Exafunction/codeium.vim)
+  - [x] AI completions : [copilot.vim](https://github.com/github/copilot.vim)
 - Other code tools
   - [x] [flutter-tools.nvim](https://github.com/akinsho/flutter-tools.nvim) for flutter
   - [x] [ray-x/go.nvim](https://github.com/ray-x/go.nvim) for go treesitter injection, gopher and other goodies
 
 > I might have missed a few things
+
+
+## Plugin collections
+
+#### [`Snacks.nvim`](https://github.com/folke/snacks.nvim)
+
+Handles dashboard, pickers and other useful features.  
+Depends on : 
+- [chafa](https://github.com/hpjansson/chafa) to render images
+
+#### [`Mini.nvim`](https://github.com/echasnovski/mini.nvim)
+Handles focus highlighting, icons etc.

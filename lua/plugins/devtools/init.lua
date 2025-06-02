@@ -5,40 +5,31 @@ return {
     build = ":UpdateRemotePlugins",
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim", -- optional
-      "neovim/nvim-lspconfig",         -- optional
     },
-    opts = {}                          -- your configuration
+    opts = {} -- your configuration
   },
-  {
-    "akinsho/flutter-tools.nvim",
-    event = "VeryLazy",
-    lazy = false,
-    cond = not vim.g.vscode,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "stevearc/dressing.nvim", -- optional for vim.ui.select
-    },
-    config = function()
-      require("flutter-tools").setup({
-        ui = {
-          border = "rounded",
-        },
-        widget_guides = {
-          enabled = true,
-        },
-        fvm = true,
-      })
 
-      require("which-key").add({
-        {
-          "<leader>fl",
-          "<cmd>lua require('telescope').extensions.flutter.commands()<cr>",
-          desc = "Flutter Tools"
-        },
-      })
-    end,
-  },
+  -- {
+  --   "akinsho/flutter-tools.nvim",
+  --   event = "VeryLazy",
+  --   lazy = false,
+  --   cond = not vim.g.vscode,
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "stevearc/dressing.nvim", -- optional for vim.ui.select
+  --   },
+  --   config = function()
+  --     require("flutter-tools").setup({
+  --       ui = {
+  --         border = "rounded",
+  --       },
+  --       widget_guides = {
+  --         enabled = true,
+  --       },
+  --       fvm = true,
+  --     })
+  --   end,
+  -- },
 
   -- Go
   {

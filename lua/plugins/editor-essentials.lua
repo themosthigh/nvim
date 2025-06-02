@@ -66,33 +66,14 @@ return {
     end,
   },
 
+
+  -- find and replace
   {
-    "folke/snacks.nvim",
-    priority = 1000,
-    lazy = false,
-    ---@type snacks.Config
-    opts = {
-      bigfile = { enabled = true },
-      image = { enabled = true },
-      -- indent = { enabled = true },
-      input = { enabled = true },
-      lazygit = { enabled = true },
-      notifier = { enabled = true },
-      picker = { enabled = true },
-      quickfile = { enabled = true },
-      scope = { enabled = true },
-      scroll = { enabled = true },
-      statuscolumn = { enabled = true },
-      words = { enabled = true },
-      zen = { enabled = true },
-
-
-      -- styles
-      styles = {
-        notification = {
-          wo = { wrap = true } -- Wrap notifications
-        }
-      }
-    },
-  }
+    "nvim-pack/nvim-spectre",
+    event = "VeryLazy",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("spectre").setup()
+    end,
+  },
 }

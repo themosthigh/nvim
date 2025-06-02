@@ -6,7 +6,7 @@ end
 
 
 -- External mapppings
-require("config.mappings.telescope-mappings")
+require("config.mappings.find-mappings")
 require("config.mappings.bufferline-mappings")
 -- require("config.mappings.kulala")
 
@@ -17,17 +17,17 @@ wk.add({
 })
 
 -- Dashboard
-wk.add({ "<leader>a", "<cmd>Alpha<cr>", desc = "Dashboard" })
+wk.add({ "<leader>a", "<cmd>lua Snacks.dashboard()<cr>", desc = "Dashboard" })
 
 -- Language server options
 wk.add({
-  { "<leader>l",  group = "LSP",                           mode = { "n", "v" } },
-  -- { "<leader>la", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" } },
-  { "<leader>la", require("tiny-code-action").code_action, desc = "Code Action", mode = { "n", "v" } },
-  { "<leader>lr", vim.lsp.buf.rename,                      desc = "Rename",      mode = { "n", "v" } },
-  { "<leader>lR", "<cmd>LspRestart<cr>",                   desc = "Restart",     mode = { "n", "v" } },
-  { "<leader>lf", vim.lsp.buf.format,                      desc = "Format",      mode = { "n", "v" } },
-  { "<leader>ld", "<cmd>Telescope lsp_definitions<cr>",    desc = "Definition",  mode = { "n", "v" } },
+  { "<leader>l",  group = "LSP",                                  mode = { "n", "v" } },
+  { "<leader>la", vim.lsp.buf.code_action,                        desc = "Code Action", mode = { "n", "v" } },
+  { "<leader>la", require("tiny-code-action").code_action,        desc = "Code Action", mode = { "n", "v" } },
+  { "<leader>lr", vim.lsp.buf.rename,                             desc = "Rename",      mode = { "n", "v" } },
+  { "<leader>lR", "<cmd>LspRestart<cr>",                          desc = "Restart",     mode = { "n", "v" } },
+  { "<leader>lf", vim.lsp.buf.format,                             desc = "Format",      mode = { "n", "v" } },
+  { "<leader>ld", "<cmd>lua Snacks.picker.lsp_definitions()<cr>", desc = "Definition",  mode = { "n", "v" } },
   {
     "<leader>lh",
     function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end,

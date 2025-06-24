@@ -9,27 +9,27 @@ return {
     opts = {} -- your configuration
   },
 
-  -- {
-  --   "akinsho/flutter-tools.nvim",
-  --   event = "VeryLazy",
-  --   lazy = false,
-  --   cond = not vim.g.vscode,
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --     "stevearc/dressing.nvim", -- optional for vim.ui.select
-  --   },
-  --   config = function()
-  --     require("flutter-tools").setup({
-  --       ui = {
-  --         border = "rounded",
-  --       },
-  --       widget_guides = {
-  --         enabled = true,
-  --       },
-  --       fvm = true,
-  --     })
-  --   end,
-  -- },
+  {
+    "akinsho/flutter-tools.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    cond = not vim.g.vscode,
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "stevearc/dressing.nvim", -- optional for vim.ui.select
+    },
+    config = function()
+      require("flutter-tools").setup({
+        ui = {
+          border = "rounded",
+        },
+        widget_guides = {
+          enabled = true,
+        },
+        fvm = true,
+      })
+    end,
+  },
 
   -- Go
   {

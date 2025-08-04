@@ -96,3 +96,16 @@ if vim.g.neovide then
   vim.g.transparency = 0.9
   vim.g.neovide_background_color = "#1e1e2e" .. alpha()
 end
+
+
+vim.api.nvim_create_autocmd("InsertEnter", {
+  callback = function()
+    vim.wo.relativenumber = false
+  end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  callback = function()
+    vim.wo.relativenumber = true
+  end,
+})

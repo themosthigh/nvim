@@ -1,21 +1,27 @@
+-- DEV Dependency management
+
 return {
   -- Mason
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {},
   },
+
   -- Mason lspconfig
   {
-    "williamboman/mason-lspconfig",
-    lazy = true,
-    event = "User FileOpened",
-    dependencies = "mason.nvim",
-    opts = {
-      automatic_installation = false,
+    "mason-org/mason-lspconfig.nvim",
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
     },
+    opts = {
+      automatic_enabled = true,
+      automatic_intallation = true,
+      -- preload any lsp servers you want to use here
+      ensure_installed = require("config.mason-lsp").servers
+    }
   },
 
-  -- Mason tool installer
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     config = function()
@@ -28,4 +34,5 @@ return {
       end
     end,
   },
+
 }

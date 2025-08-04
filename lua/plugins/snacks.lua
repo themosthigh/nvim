@@ -23,7 +23,10 @@ return {
     opts = {
       bigfile = { enabled = true },
       image = { enabled = true },
-      -- indent = { enabled = true },
+      indent = {
+        enabled = true,
+        animate = { enabled = false }
+      },
       input = { enabled = true },
       lazygit = { enabled = true },
       notifier = { enabled = true },
@@ -32,6 +35,7 @@ return {
       scope = { enabled = true },
       scroll = { enabled = true },
       statuscolumn = { enabled = true },
+      terminal = { enabled = true },
       words = { enabled = true },
       zen = { enabled = true },
 
@@ -50,26 +54,19 @@ return {
         preset = {
           header = header_image,
 
+          -- Shortcuts
           keys = {
             { icon = " ", key = "f", desc = "Find File", action = ":lua Snacks.dashboard.pick('files')" },
             { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert" },
             { icon = " ", key = "g", desc = "Find Text", action = ":lua Snacks.dashboard.pick('live_grep')" },
             { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
-            {
-              icon = " ",
-              key = "c",
-              desc = "Config",
-              action = function()
-                vim.fn.execute("cd" .. vim.fn.stdpath("config"))
-                vim.cmd("Neotree toggle")
-              end
-            },
-            -- TODO: set up mini sessions
+            { icon = " ", key = "c", desc = "Config", action = ":lua Snacks.dashboard.pick('files', {cwd = vim.fn.stdpath('config')})" },
+            -- using mini sessions
             -- { icon = " ", key = "s", desc = "Restore Session", section = "session" },
             { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+            { icon = "☭ ", key = "m", desc = "Mason", action = ":Mason" },
             { icon = " ", key = "q", desc = "Quit", action = ":qa" },
-          }
-
+          },
         },
         sections = {
           {

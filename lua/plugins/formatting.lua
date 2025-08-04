@@ -1,4 +1,6 @@
--- local auto_format_pattern = { "*.ts", "*.go", "*.rs", "*.lua", "*.tsx", "*.html", "*.svelte", "*.astro", "*.md" }
+local auto_format_pattern = { "*.ts", "*.go", "*.rs", "*.lua",
+  --"*.tsx",
+  "*.html", "*.svelte", "*.astro", "*.md" }
 
 -- Use a sub-list to run only the first available formatter
 local pretty = {
@@ -44,12 +46,15 @@ return {
         sql = { lsp_format = "first" },
         nix = { lsp_format = "first", "nixfmt" },
 
+        php = { "phpcbf", "php-cs-fixer" },
+
       },
-      -- format_on_save = {
-      --   -- These options will be passed to conform.format()
-      --   timeout_ms = 500,
-      --   lsp_format = "fallback",
-      -- },
+      format_on_save = {
+        -- These options will be passed to conform.format()
+        timeout_ms = 500,
+        lsp_format = "fallback",
+        disabled_filetypes = { "tsx", "jsx" },
+      },
     })
   end,
 }

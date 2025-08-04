@@ -6,7 +6,21 @@ return {
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
-    opts = {} -- your configuration
+    opts = {
+
+      -- see the extension section to learn more
+      extension = {
+        queries = {}, -- a list of filetypes having custom `class` queries
+        patterns = {  -- a map of filetypes to Lua pattern lists
+          -- rust = { "class=[\"']([^\"']+)[\"']" },
+          javascript = { 
+            "twMerge%(([^)]+)%)",
+            "`%(([^)]+)%)`",
+          },
+        },
+      },
+
+    }
   },
 
   {
@@ -88,9 +102,4 @@ return {
     config = true,
     dependencies = { "nvim-treesitter/nvim-treesitter" }
   },
-
-  -- Typescript
-  {
-    "yioneko/nvim-vtsls",
-  }
 }

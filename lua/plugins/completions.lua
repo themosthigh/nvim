@@ -7,6 +7,7 @@ local show_comletions = {
 
 
 return {
+
   -- Snippet engine
   {
     "L3MON4D3/LuaSnip",
@@ -28,7 +29,7 @@ return {
   -- Completions provider
   {
     'saghen/blink.cmp',
-    version = '1.*',
+    -- version = '1.*',
 
     opts = {
       -- appearance for some reason

@@ -1,8 +1,8 @@
 return {
-  {
-    "tallestlegacy/darcula.nvim",
-    -- dir = "~/Projects/foss/darcula.nvim",
-  },
+  -- {
+  --   "themosthigh/darcula.nvim",
+  --   -- dir = "~/Projects/foss/darcula.nvim",
+  -- },
 
   {
     "rebelot/kanagawa.nvim",

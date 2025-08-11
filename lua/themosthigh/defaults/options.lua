@@ -109,3 +109,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     vim.wo.relativenumber = true
   end,
 })
+
+
+vim.cmd("hi SpellBad cterm=underline gui=underline")

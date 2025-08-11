@@ -23,7 +23,7 @@ return {
     -- "java_language_server",
     "jsonls",
     -- "kotlin_language_server",
-    "lua_ls",
+    -- "lua_ls",
     "prismals",
     "pyright",
     "rust_analyzer",

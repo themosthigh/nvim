@@ -1,28 +1,14 @@
 return {
   {
-    "luckasRanarison/tailwind-tools.nvim",
-    name = "tailwind-tools",
-    build = ":UpdateRemotePlugins",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    opts = {
-
-      -- see the extension section to learn more
-      extension = {
-        queries = {}, -- a list of filetypes having custom `class` queries
-        patterns = {  -- a map of filetypes to Lua pattern lists
-          -- rust = { "class=[\"']([^\"']+)[\"']" },
-          javascript = { 
-            "twMerge%(([^)]+)%)",
-            "`%(([^)]+)%)`",
-          },
-        },
-      },
-
-    }
+    "brenoprata10/nvim-highlight-colors",
+    setup = function()
+      vim.opt.termguicolors = true
+      require("nvim-highlight-colors").setup({
+        enable_tailwind = true,
+        render = "virtual",
+      })
+    end
   },
-
   {
     "akinsho/flutter-tools.nvim",
     event = "VeryLazy",

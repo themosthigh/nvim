@@ -7,8 +7,7 @@ return {
     "gofumpt",
     "golines",
     "goimports-reviser",
-    -- "ktlint",
-    -- "black",
+    "tailwindcss",
   },
 
   servers = {

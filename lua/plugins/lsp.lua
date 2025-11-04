@@ -4,7 +4,7 @@ return {
     "neovim/nvim-lspconfig",
     config = function()
       ---@diagnostic disable-next-line: different-requires
-      require("lspconfig").lua_ls.setup({})
+      vim.lsp.enable("lua_ls")
     end,
   },
 

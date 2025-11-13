@@ -1,4 +1,5 @@
 local header_image = require("builtin.ui.figlet").vim_dos_rebel
+local simpsons = require("builtin.ui.simpsons")
 
 local image_path = vim.fn.stdpath("config") .. "/assets/kanagawa_jack.png"
 
@@ -27,7 +28,7 @@ return {
 			input = { enabled = true },
 			lazygit = { enabled = true },
 			notifier = { enabled = true },
-			picker = { enabled = true, hidden = true, ignored = true },
+			picker = { enabled = true, hidden = true, ignored = false },
 			quickfile = { enabled = true },
 			scope = { enabled = true },
 			scroll = { enabled = true },
@@ -47,7 +48,7 @@ return {
 			dashboard = {
 				emable = true,
 				preset = {
-					header = header_image,
+					header = simpsons.lisa_l,
 
 					-- Shortcuts
 					keys = {
@@ -92,7 +93,7 @@ return {
 				sections = {
 					{
 						pane = 1,
-						chafa_section,
+						-- chafa_section,
 						{
 							section = "keys",
 							title = "Commands",

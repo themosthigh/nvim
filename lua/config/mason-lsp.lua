@@ -7,7 +7,7 @@ return {
 		"gofumpt",
 		"golines",
 		"goimports-reviser",
-		"typescript-language-server",
+		"vtsls",
 	},
 
 	servers = {

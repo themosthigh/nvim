@@ -3,7 +3,7 @@ return {
 		-- formatters
 		"prettierd",
 		"eslint_d",
-		"stylua",
+		-- "stylua",
 		"gofumpt",
 		"golines",
 		"goimports-reviser",

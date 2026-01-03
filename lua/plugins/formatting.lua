@@ -69,18 +69,27 @@ return {
         proto = { "buf" },
         dart = { lsp_format = "first" },
         toml = { lsp_format = "first" },
-        sql = { lsp_format = "first" },
+        sql = { "sqlfluff_custom", lsp_format = "first" },
         nix = { lsp_format = "first", "nixfmt" },
 
         php = { "phpcbf", "php-cs-fixer" },
+
       },
-      format_on_save = function(bufnr)
-        -- Disable with a global or buffer-local variable
-        if vim.g.disable_autailwindcsstoformactip or vim.b[bufnr].disable_autoformat then
-          return
-        end
-        return { timeout_ms = 500, lsp_format = "fallback" }
-      end,
+      format_on_save   = {
+        -- These options will be passed to conform.format()
+        timeout_ms = 500,
+        lsp_format = "fallback",
+        disabled_filetypes = { "tsx", "jsx" },
+      },
+
+      formatters       = {
+        sqlfluff_custom = {
+          command = "sqlfluff",
+          args = { "format", "--dialect=postgres", "-" },
+          stdin = true,
+          cwd = require("conform.util").root_file({ ".sqlfluff", "pyproject.toml" }),
+        },
+      }
     })
   end,
 }

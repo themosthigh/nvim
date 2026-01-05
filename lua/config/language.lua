@@ -1,5 +1,6 @@
-vim.lsp.enable("lua_ls")
+local markup_files = require("config.mason-lsp").markup_files
 
+vim.lsp.enable("lua_ls")
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
@@ -20,3 +21,9 @@ local function organize_imports_ts()
   }, 3000)
 end
 vim.api.nvim_create_user_command("OrganizeImportsTS", organize_imports_ts, {})
+
+
+vim.lsp.enable("unocss")
+vim.lsp.config("unocss", {
+  filetyoes = markup_files
+})

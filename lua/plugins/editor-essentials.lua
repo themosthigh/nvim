@@ -65,11 +65,6 @@ return {
 
   -- find and replace
   {
-    "nvim-pack/nvim-spectre",
-    event = "VeryLazy",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("spectre").setup()
-    end,
+    "MagicDuck/grug-far.nvim",
   },
 }

@@ -1,9 +1,12 @@
 return {
+  -- workspace diagnostics
+  { "artemave/workspace-diagnostics.nvim" },
+
   -- LSP
   {
     "neovim/nvim-lspconfig",
+    opts = { diagnostics = { virtual_text = false } },
     config = function()
-      ---@diagnostic disable-next-line: different-requires
       vim.lsp.enable("lua_ls")
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)

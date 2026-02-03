@@ -67,4 +67,22 @@ return {
   {
     "MagicDuck/grug-far.nvim",
   },
+
+  -- inline diagnostics
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    event = "VeryLazy",
+    priority = 1000,
+    config = function()
+      require("tiny-inline-diagnostic").setup {
+        options = {
+          multilines = { enabled = true },
+          show_source = { enabled = true },
+          use_icons_from_diagnostic = true,
+          -- add_messages = { display_count = true, messages = true }
+
+        }
+      }
+    end
+  },
 }

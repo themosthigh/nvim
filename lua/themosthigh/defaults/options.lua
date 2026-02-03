@@ -61,7 +61,7 @@ local default_diagnostic_config = {
       { name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
     },
   },
-  virtual_text = true,
+  -- virtual_text = true,
   update_in_insert = true,
   underline = true,
   severity_sort = true,

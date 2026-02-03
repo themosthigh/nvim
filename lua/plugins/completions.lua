@@ -7,7 +7,6 @@ local show_comletions = {
 
 
 return {
-
   -- Snippet engine
   {
     "L3MON4D3/LuaSnip",
@@ -25,12 +24,10 @@ return {
       delete_check_events = "TextChanged",
     },
   },
-
   -- Completions provider
   {
     'saghen/blink.cmp',
     -- version = '1.*',
-
     opts = {
       -- appearance for some reason
       appearance = {
@@ -50,7 +47,7 @@ return {
         },
         providers = {
           lsp = { score_offset = 10 },
-          snippets = { score_offset = -10 }
+          snippets = { score_offset = -10 },
         },
       },
 

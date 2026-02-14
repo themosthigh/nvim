@@ -74,6 +74,7 @@ return {
     event = "VeryLazy",
     priority = 1000,
     config = function()
+      vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
       require("tiny-inline-diagnostic").setup {
         options = {
           multilines = { enabled = true },

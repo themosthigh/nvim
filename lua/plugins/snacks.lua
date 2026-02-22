@@ -25,7 +25,7 @@ return {
         enabled = true,
         animate = { enabled = false },
       },
-      input = { enabled = true },
+      input = { enabled = true, position = "float" },
       lazygit = { enabled = true },
       notifier = { enabled = true },
       picker = { enabled = true, hidden = true, ignored = false },

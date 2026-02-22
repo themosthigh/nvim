@@ -37,7 +37,7 @@ local options = {
   writebackup = false,
   ignorecase = true,
   spell = true,
-  spelllang = "en_us,en_gb,la",
+  spelllang = "en_us,en_gb,la,es",
   spelloptions = "camel",
 
   --search
@@ -97,7 +97,6 @@ if vim.g.neovide then
   vim.g.neovide_background_color = "#1e1e2e" .. alpha()
 end
 
-
 vim.api.nvim_create_autocmd("InsertEnter", {
   callback = function()
     vim.wo.relativenumber = false
@@ -109,6 +108,5 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     vim.wo.relativenumber = true
   end,
 })
-
 
 vim.cmd("hi SpellBad cterm=underline gui=underline")

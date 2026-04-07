@@ -70,15 +70,17 @@ return {
 			-- pattern matching
 			fuzzy = { implementation = "lua", sorts = { "score" } },
 
-			-- keymaps
-			keymap = {
-				preset = "default",
-				-- show with a list of providers
-				["<C-space>"] = show_comletions,
-				["<D-space>"] = show_comletions,
-				["<CR>"] = { "accept", "fallback" },
-			},
-		},
-		opts_extend = { "sources.default" },
-	},
+      -- keymaps
+      keymap = {
+        preset = "default",
+        -- show with a list of providers
+        ['<C-Space>'] = { "show", "show_signature", "hide_signature" },
+        ['<C-l>'] = { "show", "show_signature", "hide_signature" },
+        ['<D-Space>'] = { "show", "show_signature", "hide_signature" },
+        ["<CR>"] = { "accept", "fallback" },
+
+      },
+    },
+    opts_extend = { "sources.default" },
+  },
 }

@@ -1,15 +1,15 @@
 return {
-	-- AI Completions
-	{
-		"supermaven-inc/supermaven-nvim",
-		config = function()
-			require("supermaven-nvim").setup({
-				disable_keymaps = false,
-				disable_inline_comepletion = false,
-				keymaps = {
-					accept_suggestion = "<Tab><Tab>",
-				},
-			})
-		end,
-	},
+  {
+    "monkoose/neocodeium",
+    event = "VeryLazy",
+    config = function()
+      local neocodeium = require("neocodeium")
+      neocodeium.setup()
+      vim.keymap.set("i", "<A-f>", neocodeium.accept)
+      vim.keymap.set("i", "<C-i>", neocodeium.accept)
+      vim.keymap.set("i", "<A-[>", function() neocodeium.cycle(-1) end)
+      vim.keymap.set("i", "<A-]>", neocodeium.cycle)
+      -- vim.keymap.set("i", "<A->", neocodeium.cancel)
+    end,
+  }
 }

@@ -4,6 +4,9 @@ return {
     "neovim/nvim-lspconfig",
     opts = { diagnostics = { virtual_text = false } },
     config = function()
+      -- inline color hints
+      vim.lsp.document_color.enable(true, nil, { style = "virtual" })
+
       vim.lsp.enable("lua_ls")
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)

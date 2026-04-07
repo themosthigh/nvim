@@ -1,29 +1,27 @@
 return {
   { -- TreeSitter
     "nvim-treesitter/nvim-treesitter",
-    branch = 'master',
+    branch = 'main',
     lazy = false,
     build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup {
-        ensure_installed = {},
-        sync_install = false,
-        ignore_install = {},
-        modules = {},
-        auto_install = true,
-        indent = { enable = true },
-        highlight = { enable = true },
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = "gnn",
-            node_incremental = "grn",
-            scope_incremental = "grc",
-            node_decremental = "grm",
-          },
+    main = "nvim-treesitter",
+    opts = {
+      sync_install = false,
+      ignore_install = {},
+      modules = {},
+      auto_install = true,
+      indent = { enable = true },
+      highlight = { enable = true },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "gnn",
+          node_incremental = "grn",
+          scope_incremental = "grc",
+          node_decremental = "grm",
         },
-      }
-    end
+      },
+    },
 
   },
   {

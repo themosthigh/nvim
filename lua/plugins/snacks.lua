@@ -27,7 +27,7 @@ return {
       },
       input = { enabled = true, position = "float" },
       lazygit = { enabled = true },
-      notifier = { enabled = true },
+      -- notifier = { enabled = true },
       picker = { enabled = true, hidden = true, ignored = false },
       quickfile = { enabled = true },
       scope = { enabled = true },

@@ -45,6 +45,8 @@ local options = {
   incsearch = true,
 }
 
+vim.opt.fillchars:append { diff = "╱" }
+
 -- update options
 for k, v in pairs(options) do
   vim.opt[k] = v
@@ -61,7 +63,7 @@ local default_diagnostic_config = {
       { name = "DiagnosticSignInfo",  text = icons.diagnostics.Information },
     },
   },
-  -- virtual_text = true,
+  virtual_text = true,
   update_in_insert = true,
   underline = true,
   severity_sort = true,
@@ -75,7 +77,7 @@ local default_diagnostic_config = {
   },
 }
 
--- vim.diagnostic.config(default_diagnostic_config)
+vim.diagnostic.config(default_diagnostic_config)
 
 -- diagnostics icons
 vim.fn.sign_define("DiagnosticSignError", { text = icons.diagnostics.BoldError, texthl = "DiagnosticSignError" })

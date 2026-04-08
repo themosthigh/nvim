@@ -45,7 +45,11 @@ local options = {
   incsearch = true,
 }
 
+-- fancy diff element
 vim.opt.fillchars:append { diff = "╱" }
+
+-- permanently get rid of Press Enter to continue message (v0.12)
+require('vim._core.ui2').enable({})
 
 -- update options
 for k, v in pairs(options) do

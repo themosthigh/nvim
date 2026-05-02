@@ -1,3 +1,22 @@
+-- Made with Gemini
+vim.api.nvim_create_autocmd("BufEnter", {
+  group = vim.api.nvim_create_augroup("UserTreesitter", { clear = true }),
+  callback = function(args)
+    -- 1. Only run on regular files (skips terminal, help, quickfix, etc.)
+    if vim.bo[args.buf].buftype ~= "" then return end
+
+    -- 2. Only run if the buffer has a valid language/filetype
+    local lang = vim.treesitter.language.get_lang(vim.bo[args.buf].filetype)
+
+    -- 3. Only start if a parser and highlight queries are installed
+    if lang and vim.treesitter.query.get(lang, "highlights") then
+      vim.treesitter.start(args.buf)
+    end
+  end,
+  desc = "Start Treesitter highlighting for regular files with installed parsers"
+})
+
+
 return {
   { -- TreeSitter
     "nvim-treesitter/nvim-treesitter",

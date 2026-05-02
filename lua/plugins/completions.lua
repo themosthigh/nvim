@@ -1,86 +1,70 @@
--- temporarily disabled
-local show_comletions = {
-	function(cmp)
-		cmp.show({})
-	end,
-}
-
 return {
 
-	-- Snippet engine
-	{
-		"L3MON4D3/LuaSnip",
-		lazy = true,
-		dependencies = {
-			{
-				"rafamadriz/friendly-snippets",
-				config = function()
-					require("luasnip.loaders.from_vscode").lazy_load()
-				end,
-			},
-		},
-		opts = {
-			history = true,
-			delete_check_events = "TextChanged",
-		},
-	},
-
-	-- Completions provider
-	{
-		"saghen/blink.cmp",
-		-- version = '1.*',
-		dependencies = {},
-		opts = {
-			-- appearance for some reason
-			appearance = {
-				nerd_font_variant = "mono",
-			},
-
-			-- snippet engine
-			snippets = { preset = "luasnip" },
-
-			-- completion sources
-			sources = {
-				default = {
-					"lsp",
-					"path",
-					"buffer",
-					-- compat = { "supermaven" },
-					-- 'snippets',
-				},
-				providers = {
-					lsp = { score_offset = 10 },
-					snippets = { score_offset = -10 },
-				},
-			},
-
-			-- (Default) Only show the documentation popup when manually triggered
-			completion = {
-				documentation = {
-					auto_show = true,
-					auto_show_delay_ms = 0,
-				},
-				list = {
-					max_items = 200,
-					selection = { preselect = false, auto_insert = false },
-				},
-				menu = { max_height = 30 },
-			},
-
-			-- pattern matching
-			fuzzy = { implementation = "lua", sorts = { "score" } },
-
-      -- keymaps
-      keymap = {
-        preset = "default",
-        -- show with a list of providers
-        ['<C-Space>'] = { "show", "show_signature", "hide_signature" },
-        ['<C-l>'] = { "show", "show_signature", "hide_signature" },
-        ['<D-Space>'] = { "show", "show_signature", "hide_signature" },
-        ["<CR>"] = { "accept", "fallback" },
-
+  -- Snippet engine
+  {
+    "L3MON4D3/LuaSnip",
+    lazy = true,
+    dependencies = {
+      {
+        "rafamadriz/friendly-snippets",
+        config = function()
+          require("luasnip.loaders.from_vscode").lazy_load()
+        end,
       },
     },
-    opts_extend = { "sources.default" },
+    opts = {
+      history = true,
+      delete_check_events = "TextChanged",
+    },
   },
+
+  {
+    'saghen/blink.cmp',
+    dependencies = {
+      'saghen/blink.lib',
+      -- optional: provides snippets for the snippet source
+      'rafamadriz/friendly-snippets',
+    },
+    build = function()
+      -- build the fuzzy matcher, wait up to 60 seconds
+      -- you can use `gb` in `:Lazy` to rebuild the plugin as needed
+      require('blink.cmp').build():wait(60000)
+    end,
+
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
+      -- 'super-tab' for mappings similar to vscode (tab to accept)
+      -- 'enter' for enter to accept
+      -- 'none' for no mappings
+      --
+      -- All presets have the following mappings:
+      -- C-space: Open menu or open docs if already open
+      -- C-n/C-p or Up/Down: Select next/previous item
+      -- C-e: Hide menu
+      -- C-k: Toggle signature help (if signature.enabled = true)
+      --
+      -- See :h blink-cmp-config-keymap for defining your own keymap
+      keymap = {
+        preset = 'enter',
+        -- ['<C-Space>'] = { "show", "show_signature", "hide_signature" },
+        -- ['<C-l>'] = { "show", "show_signature", "hide_signature" },
+        -- ['<D-Space>'] = { "show", "show_signature", "hide_signature" },
+        -- ["<CR>"] = { "accept", "fallback" },
+      },
+
+      -- (Default) Only show the documentation popup when manually triggered
+      completion = { documentation = { auto_show = false } },
+
+      -- (Default) list of enabled providers defined so that you can extend it
+      -- elsewhere in your config, without redefining it, due to `opts_extend`
+      sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } },
+
+      -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
+      -- You may use a lua implementation instead by using `implementation = "lua"`
+      -- See the fuzzy documentation for more information
+      fuzzy = { implementation = "lua" }
+    },
+  }
 }

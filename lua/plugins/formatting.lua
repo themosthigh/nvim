@@ -12,6 +12,7 @@ local auto_format_pattern = {
 
 -- Use a sub-list to run only the first available formatter
 local pretty = {
+  "biome",
 	"prettierd",
 	"prettier",
 	stop_after_first = true,

@@ -9,7 +9,7 @@ vim.g.gruvbox_material_better_performance = 1
 -- Use light gray theme for deleted sections
 vim.api.nvim_create_autocmd("ColorScheme", {
   callback = function()
-    vim.api.nvim_set_hl(0, "DiffDelete", { fg = "GRAY", bg = "NONE", ctermfg = 250, ctermbg = "NONE" })
+    vim.api.nvim_set_hl(0, "DiffDelete", { fg = "DARKRED", bg = "NONE", ctermfg = 250, ctermbg = "NONE" })
   end,
 })
 

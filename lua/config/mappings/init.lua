@@ -12,8 +12,9 @@ require("config.mappings.goto-mappings")
 
 -- Explorer
 wk.add({
-  { "<leader>n", "<cmd>Neotree toggle<cr>", desc = "Explorer (toggle)" },
-  { "<leader>e", "<cmd>Neotree focus<cr>",  desc = "Explorer (focus)" },
+  { "<leader>n", "<cmd>Neotree toggle<cr>",     desc = "Explorer (toggle)" },
+  { "<leader>e", "<cmd>Neotree focus<cr>",      desc = "Explorer (focus)" },
+  { "<leader>G", "<cmd>Neotree git_status<cr>", desc = "Explorer (git)" },
 })
 
 wk.add({ "<leader>k", vim.lsp.buf.hover, desc = "Hover" })
@@ -37,7 +38,7 @@ wk.add({
   { "<leader>la", require("tiny-code-action").code_action,         desc = "Code Action",  mode = { "n", "v" } },
   { "<leader>lr", vim.lsp.buf.rename,                              desc = "Rename",       mode = { "n", "v" } },
   { "<leader>lR", "<cmd>lua Snacks.picker.lsp_declarations()<cr>", desc = "Declarations", mode = { "n", "v" } },
-  { "<leader>ls", "<cmd>LspRestart<cr>",                           desc = "Restart",      mode = { "n", "v" } },
+  { "<leader>ls", "<cmd>lsp restart<cr>",                          desc = "Restart",      mode = { "n", "v" } },
   { "<leader>lf", vim.lsp.buf.format,                              desc = "Format",       mode = { "n", "v" } },
   { "<leader>ld", "<cmd>lua Snacks.picker.lsp_definitions()<cr>",  desc = "Definition",   mode = { "n", "v" } },
   {

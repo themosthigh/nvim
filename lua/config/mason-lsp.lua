@@ -7,7 +7,7 @@ return {
     "gofumpt",
     "golines",
     "goimports-reviser",
-    "vtsls",
+    "typescript-language-server",
   },
 
   servers = {
@@ -23,6 +23,7 @@ return {
     "jsonls",
     -- "kotlin_language_server",
     -- "lua_ls",
+    "postgres_lsp",
     "prismals",
     "pyright",
     "rust_analyzer",
@@ -30,7 +31,7 @@ return {
     -- "sqlls",
     "taplo", -- toml
     -- "vala_ls",
-    "zls", -- zig
+    "zls",   -- zig
     -- "nil_ls", -- nix
     "vuels", -- vue
   },

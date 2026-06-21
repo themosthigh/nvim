@@ -1,5 +1,3 @@
-local icons = require("builtin.ui.icons")
-
 return {
   {
     "echasnovski/mini.nvim",
@@ -24,6 +22,15 @@ return {
 
       -- SURROUND
       -- require("mini.surround").setup()
+
+      -- COMPLETION
+      require("mini.completion").setup()
+      vim.api.nvim_create_autocmd({ "BufEnter", "FileType" }, {
+        callback = function()
+          local is_source_file = vim.bo.buftype == "" and vim.fn.expand("%") ~= ""
+          vim.b.minicompletion_disable = not is_source_file
+        end,
+      })
     end,
   },
 }

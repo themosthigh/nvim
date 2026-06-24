@@ -28,7 +28,23 @@ return {
       input = { enabled = true, position = "float" },
       lazygit = { enabled = true },
       -- notifier = { enabled = true },
-      picker = { enabled = true, hidden = true, ignored = false },
+      picker = {
+        enabled = true,
+        sources = {
+          files = {
+            hidden = true,
+            ignored = true,
+            exclude = {
+              ".git",
+              "node_modules",
+              "target",
+              "build",
+              "dist",
+              "vendor",
+            }
+          }
+        }
+      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },

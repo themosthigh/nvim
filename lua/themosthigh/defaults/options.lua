@@ -43,6 +43,9 @@ local options = {
   --search
   hlsearch = true,
   incsearch = true,
+
+  -- completions
+  completeopt = { "menu", "menuone", "noselect", "fuzzy" },
 }
 
 -- fancy diff element
@@ -82,6 +85,7 @@ local default_diagnostic_config = {
 }
 
 vim.diagnostic.config(default_diagnostic_config)
+
 
 -- diagnostics icons
 vim.fn.sign_define("DiagnosticSignError", { text = icons.diagnostics.BoldError, texthl = "DiagnosticSignError" })
